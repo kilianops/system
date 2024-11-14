@@ -1,0 +1,14 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v2beta1
+kind: GitRepository
+metadata:
+  name: charts
+  namespace: flux-system
+spec:
+  timeout: 1m0s
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/kilianops/charts.git
+  # secretRef:
+  #   name: admin-credentials

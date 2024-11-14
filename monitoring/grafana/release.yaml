@@ -1,0 +1,21 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: grafana
+  namespace: flux-system
+spec:
+  releaseName: grafana
+  chart:
+    spec:
+      chart: grafana
+      version: ">=8.6.0"
+      sourceRef:
+        name: grafana
+        kind: HelmRepository
+        namespace: flux-system
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  values:
